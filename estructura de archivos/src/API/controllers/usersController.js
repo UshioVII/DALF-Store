@@ -7,7 +7,7 @@ const { createError } = require('../helpers');
 module.exports = {
 
     getAvatar : (req,res) => {
-        return res.sendFile(path.join(__dirname, '..','..','..','public','images','users', req.params.file ))
+        return res.sendFile(req.params.file, { root: path.join(__dirname, '..','..','..','public','images','users') })
     },
 
     getAllUsers: async (req, res) => {

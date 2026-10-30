@@ -25,14 +25,14 @@ router.get('/logout', logout);
 //USER PROFILE
 router.get('/profile', userSessionCheck, profile);
 router.get('/profileUpdate', userSessionCheck, profileUpdate);
-router.put('/update/:id', uploadUsers.single('avatarFile'), profileValidator, update);
+router.put('/update/:id', userSessionCheck, uploadUsers.single('avatarFile'), profileValidator, update);
 
 /* //MY SHOPPING
 router.get('/shopping', shopping); */
 
 //USER DELETE ACCOUNT
 router.get('/deleteAcc/', userSessionCheck, deleteAcc)
-router.delete('/delete/:id', remove);
+router.delete('/delete/:id', userSessionCheck, remove);
 
 module.exports = router;
 

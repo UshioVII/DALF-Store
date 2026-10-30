@@ -99,7 +99,9 @@ module.exports = {
                 };
                 if (req.body.remember) {
                     // Si el usuario lo desea, guardamos sus datos en una cookie
-                    res.cookie("userDalfStore", req.session.userLogin, {
+                    res.cookie("userDalfStore", user.id, {
+                        signed: true,
+                        httpOnly: true,
                         maxAge: 10000 * 60,
                     });
                 }

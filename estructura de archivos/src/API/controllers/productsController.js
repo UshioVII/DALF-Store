@@ -180,7 +180,7 @@ module.exports = {
     },
     image: async (req, res) => {
         console.log(req.params.image);
-        return res.sendFile(path.join(__dirname, '..', '..', '..', 'public', 'images', 'products', req.params.image))
+        return res.sendFile(req.params.image, { root: path.join(__dirname, '..', '..', '..', 'public', 'images', 'products') })
     },
     //CARGA DE PRODUCTOS 
     create: async (req, res) => {

@@ -16,14 +16,14 @@ router.get('/productDetail/:id', productDetail);
 
 //PRODUCTS lOAD
 router.get('/productsLoad',adminCheck, productsLoad);
-router.post('/productsLoad', uploadProducts.array('imagen'), productValidator, create);
+router.post('/productsLoad', adminCheck, uploadProducts.array('imagen'), productValidator, create);
 
 //PRODUCT EDIT
 router.get('/productEdit/:id', adminCheck, productEdit);
-router.put('/update/:id', uploadProducts.array('imagen'),productValidator, update);
+router.put('/update/:id', adminCheck, uploadProducts.array('imagen'),productValidator, update);
 
 //PRODUCT DELETE
-router.delete('/deleteProduct/:id', destroy);
+router.delete('/deleteProduct/:id', adminCheck, destroy);
 
 //CART
 router.get('/cart', cart);

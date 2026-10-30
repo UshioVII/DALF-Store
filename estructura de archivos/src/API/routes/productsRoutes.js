@@ -11,8 +11,8 @@ const productValidator = require('../../validations/productValidator');
 router.get('/', productsList);
 router.get('/image/:image', image);
 router.get('/productDetail/:id', productDetail);
-router.post('/productsLoad', uploadProducts.array('imagen'), productValidator, create);
-router.put('/update/:id', uploadProducts.array('imagen'),productValidator, update);
-router.delete('/deleteProduct/:id', destroy);
+router.post('/productsLoad', adminCheck, uploadProducts.array('imagen'), productValidator, create);
+router.put('/update/:id', adminCheck, uploadProducts.array('imagen'),productValidator, update);
+router.delete('/deleteProduct/:id', adminCheck, destroy);
 
 module.exports = router;
